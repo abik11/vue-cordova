@@ -1,28 +1,27 @@
 ﻿<template>
    <transition appear name="custom-classes-transition" enter-active-class="animated fadeIn">
       <div>
-         <h1>{{$t('common.hello_world')}}</h1>
-         <p>{{sharedData.appVersion}}</p>
+         <p>{{macAddress}}</p>
       </div>
    </transition>
 </template>
 
 <script>
-   import DataStore from './core/dataStore';
-   import ErrorMixin from './core/errorMixin';
+   import DataStore from '../core/dataStore';
+   import ErrorMixin from '../core/errorMixin';
 
    export default {
-      name: 'app',
+      name: 'showMac',
       mixins: [ErrorMixin],
       data: function () {
          return {
+            macAddress: '',
             sharedData: DataStore.state
          }
       },
-      computed: {},
-      methods: {},
-      mounted() {
-         window.setInterval(() => console.log('.'), 1000);
+      beforeMount() {
+         var that = this;
+         this.$device.getMacAddress(mac => that.macAddress = mac);
       }
    }
 </script>

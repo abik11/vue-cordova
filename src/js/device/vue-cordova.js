@@ -27,11 +27,11 @@ VueCordova.install = function (Vue, options) {
    };
 
    var device = {
-      //getMacAddress: function (success, error) {
-      //   if (typeof (error) === 'undefined')
-      //      error = defaults.defaultErrorHandler;
-      //   cordova.exec(success, error, 'getmac', 'getMacAddress', []);
-      //},
+      getMacAddress: function (success, error) {
+         if (typeof (error) === 'undefined')
+            error = defaults.defaultErrorHandler;
+         cordova.exec(success, error, 'getmac', 'getMacAddress', []);
+      },
 
       //getBarcodeScannerConfig() {
       //   return defaults.barcodeScannerConfig;

@@ -7,7 +7,8 @@ import VueI18n from 'vue-i18n';
 import Locale from './language/vue-i18n-locales.js';
 import '../css/index.scss';
 //---
-import App from './app.vue';
+import Home from './components/home.vue';
+import ShowMac from './components/showMac.vue';
 
 (function () {
    "use strict";
@@ -25,7 +26,8 @@ import App from './app.vue';
       const router = new VueRouter({
          base: __dirname,
          routes: [
-            { path: '/', component: App }
+            { path: '/', component: Home },
+            { path: '/mac', component: ShowMac }
          ]
       });
 

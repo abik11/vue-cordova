@@ -19,4 +19,4 @@ It is recommended to install the following tools for VS2017:
 Because on Windows you may encounter problems if you will try to delete *node_modules* directory, it is also recommended to install **rimraf** package from npm. 
 
 ### Build
-Before building the application run: `npm i`.
+Before building the application run: `npm i` or restore packages through Visual Studio GUI.
