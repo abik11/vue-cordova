@@ -20,3 +20,6 @@ Because on Windows you may encounter problems if you will try to delete *node_mo
 
 ### Build
 Before building the application run: `npm i` or restore packages through Visual Studio GUI.
+
+### CSS
+You will not find too much styles here, it is supposed to be as simple and *bare* as possible. If you would like to add some CSS framework, you can see [here](https://github.com/abik11/todo-app-vue) an example of how to add Materialize to Vue.js project. Adding other frameworks should be very similar.
