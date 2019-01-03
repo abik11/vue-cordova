@@ -4,17 +4,16 @@ VueCordova.install = function (Vue, options) {
    var imageMimeType = 'image/jpeg';
 
    var defaults = {
-      //defaultErrorHandler(error) {
-      //   console.error(error);
-      //},
-      //barcodeScannerConfig: {
-      //   preferFrontCamera: false,
-      //   showFlipCameraButton: false,
-      //   prompt: "Scan barcode",
-      //   resultDisplayDuration: 800,
-      //   formats: "QR_CODE,DATA_MATRIX,CODE_128,CODE_39,CODE_93,UPC_E,UPC_A,EAN_8,EAN_13",
-      //   orientation: "landscape"
-      //},
+      defaultErrorHandler(error) {
+         console.error(error);
+      },
+      barcodeScannerConfig: {
+         preferFrontCamera: false,
+         showFlipCameraButton: false,
+         prompt: "Scan barcode",
+         resultDisplayDuration: 800,
+         formats: "QR_CODE,DATA_MATRIX,CODE_128,CODE_39,CODE_93,UPC_E,UPC_A,EAN_8,EAN_13"
+      },
       //cameraConfig: {
       //   quality: 50,
       //   targetWidth: 800,
@@ -33,13 +32,13 @@ VueCordova.install = function (Vue, options) {
          cordova.exec(success, error, 'getmac', 'getMacAddress', []);
       },
 
-      //getBarcodeScannerConfig() {
-      //   return defaults.barcodeScannerConfig;
-      //},
+      getBarcodeScannerConfig() {
+         return defaults.barcodeScannerConfig;
+      },
 
-      //checkWifiConnection() {
-      //   return navigator.connection.type == Connection.WIFI;
-      //},
+      checkWifiConnection() {
+         return navigator.connection.type == Connection.WIFI;
+      },
 
       //getCameraConfig() {
       //   return defaults.cameraConfig;

@@ -8,6 +8,7 @@ import Locale from './language/vue-i18n-locales.js';
 import '../css/index.scss';
 //---
 import Home from './components/home.vue';
+import ScanBarcode from './components/scanBarcode.vue';
 import ShowMac from './components/showMac.vue';
 
 (function () {
@@ -27,6 +28,7 @@ import ShowMac from './components/showMac.vue';
          base: __dirname,
          routes: [
             { path: '/', component: Home },
+            { path: '/scan', component: ScanBarcode },
             { path: '/mac', component: ShowMac }
          ]
       });
