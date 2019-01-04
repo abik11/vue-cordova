@@ -9,7 +9,7 @@ This is a mobile application project made with:
 * Webpack
 
 ### Visual Studio Extensions and tools
-It is recommended to install the following tools for VS2017:
+Any other IDE or text editor can be used to work with this project but with the following extensions for VS2017 it becomes a very handy IDE for hybrid-mobile development. It is recommended to install the following tools for VS2017:
 * Visual Studio Tools for Apache Cordova 
 * Vue.js Pack 2017
 * WebPack Task Runner
