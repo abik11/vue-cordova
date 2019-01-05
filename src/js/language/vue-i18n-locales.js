@@ -2,7 +2,8 @@
    en: {
       common: {
          on: 'ON',
-         off: 'OFF'
+         off: 'OFF',
+         scan: 'Scan'
       },
       home: {
          app_ver: 'App version',
