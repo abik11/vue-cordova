@@ -6,6 +6,7 @@
          <p>{{$t('home.time_elapsed')}}: {{timeElapsed}}</p>
          <p><router-link to="/scan">{{$t('home.scan_barcode')}}</router-link></p>
          <p><router-link to="/mac">{{$t('home.show_mac')}}</router-link></p>
+         <p><router-link to="/picture">{{$t('home.make_picture')}}</router-link></p>
          <p><a href="#" @click="clear">{{$t('home.clear_data')}}</a></p>
          <language />
       </div>

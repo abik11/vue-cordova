@@ -11,6 +11,7 @@
          time_elapsed: 'Time elapsed',
          scan_barcode: 'Scan Barcode',
          show_mac: 'Show MAC',
+         make_picture: 'Make a picture',
          clear_data: 'Clear component data'
       }
    },
@@ -18,18 +19,12 @@
       common: {
          on: 'włączone',
          off: 'wyłączone'
-      },
-      home: {
-         app_ver: 'Wersja',
-         wifi_status: 'Stan wifi',
-         time_elapsed: 'Czas',
-         scan_barcode: 'Skanuj kod kreskowy',
-         show_mac: 'Pokaż MAC',
-         clear_data: 'Wyczyść dane komponentu'
       }
    },
    es: {
       common: {
+         on: 'conectado',
+         off: 'desconectado'
       }
    }
 }

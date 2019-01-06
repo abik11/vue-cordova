@@ -11,6 +11,7 @@ import '../css/index.scss';
 import Home from './components/home.vue';
 import ScanBarcode from './components/scanBarcode.vue';
 import ShowMac from './components/showMac.vue';
+import MakePicture from './components/makePicture.vue';
 
 (function () {
    "use strict";
@@ -31,7 +32,8 @@ import ShowMac from './components/showMac.vue';
          routes: [
             { path: '/', component: Home },
             { path: '/scan', component: ScanBarcode },
-            { path: '/mac', component: ShowMac }
+            { path: '/mac', component: ShowMac },
+            { path: '/picture', component: MakePicture }
          ]
       });
 

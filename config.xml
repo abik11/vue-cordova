@@ -41,4 +41,6 @@
   <plugin name="cordova-plugin-getmacandroid6" spec="~0.0.1" src="https://github.com/navidmalekan/getmac" />
   <plugin name="cordova-plugin-network-information" spec="~2.0.1" />
   <plugin name="phonegap-plugin-barcodescanner" spec="~8.0.1" />
+  <plugin name="cordova-plugin-file" spec="~4.3.3" />
+  <plugin name="cordova-plugin-camera" spec="~2.4.1" />
 </widget>
