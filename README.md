@@ -26,7 +26,12 @@ To allow Cordova to access hardware or system functions you sometimes need to in
 * cordova-sms-plugin
 
 ##### Permissions
-Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work 
+Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work as expected. If you encounter problems with permissions, the easiest way to overcome it is to add manually permissions to the manifest.<br />
+In your project directory go to: `./platforms/android/AndroidManifest.xml` and add there the permissions that you need, for example:
+```xml
+<uses-permission android:name="android.permission.SEND_SMS" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+```
 
 ### Rimraf
 Because on Windows you may encounter problems if you will try to delete *node_modules* directory, it is also recommended to install **rimraf** package from npm. 
