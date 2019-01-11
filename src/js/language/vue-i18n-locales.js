@@ -3,7 +3,8 @@
       common: {
          on: 'ON',
          off: 'OFF',
-         scan: 'Scan'
+         scan: 'Scan',
+         send: 'Send'
       },
       home: {
          app_ver: 'App version',
@@ -12,7 +13,14 @@
          scan_barcode: 'Scan Barcode',
          show_mac: 'Show MAC',
          make_picture: 'Make a picture',
+         send_message: 'Send a message',
+         run_bg_task: 'Run a background task',
          clear_data: 'Clear component data'
+      },
+      send_message: {
+         enter_message: 'Enter message...',
+         phone_number: 'Enter phone number...',
+         message_sent: 'Message sent'
       }
    },
    pl: {

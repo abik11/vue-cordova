@@ -12,6 +12,7 @@ import Home from './components/home.vue';
 import ScanBarcode from './components/scanBarcode.vue';
 import ShowMac from './components/showMac.vue';
 import MakePicture from './components/makePicture.vue';
+import SendMessage from './components/sendMessage.vue';
 
 (function () {
    "use strict";
@@ -33,7 +34,8 @@ import MakePicture from './components/makePicture.vue';
             { path: '/', component: Home },
             { path: '/scan', component: ScanBarcode },
             { path: '/mac', component: ShowMac },
-            { path: '/picture', component: MakePicture }
+            { path: '/picture', component: MakePicture },
+            { path: '/sms', component: SendMessage  }
          ]
       });
 

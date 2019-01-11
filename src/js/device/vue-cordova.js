@@ -22,6 +22,10 @@ VueCordova.install = function (Vue, options) {
          correctOrientation: false,
          saveToPhotoAlbum: false,
          destinationType: Camera.DestinationType.FILE_URI
+      },
+      smsConfig: {
+         replaceLineBreaks: false,
+         android: { intent: '' }
       }
    };
 
@@ -32,12 +36,16 @@ VueCordova.install = function (Vue, options) {
          cordova.exec(success, error, 'getmac', 'getMacAddress', []);
       },
 
-      getBarcodeScannerConfig() {
-         return defaults.barcodeScannerConfig;
-      },
-
       checkWifiConnection() {
          return navigator.connection.type == Connection.WIFI;
+      },
+
+      getSmsConfig() {
+         return defaults.smsConfig;
+      },
+
+      getBarcodeScannerConfig() {
+         return defaults.barcodeScannerConfig;
       },
 
       getCameraConfig() {

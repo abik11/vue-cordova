@@ -23,6 +23,10 @@ To allow Cordova to access hardware or system functions you sometimes need to in
 * cordova-plugin-network-information
 * cordova-plugin-camera
 * cordova-plugin-file
+* cordova-sms-plugin
+
+##### Permissions
+Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work 
 
 ### Rimraf
 Because on Windows you may encounter problems if you will try to delete *node_modules* directory, it is also recommended to install **rimraf** package from npm. 
