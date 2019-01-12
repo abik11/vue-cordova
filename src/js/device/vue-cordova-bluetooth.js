@@ -105,24 +105,3 @@ export default VueCordovaBluetooth;
       });
 
 */
-
-
-/*
-captureImage(){
-         this.$device.getPicture(this.parseImage);
-      },
-      parseImage(imageUri){
-         this.imageUri = imageUri;
-         this.$emit('image-changed', this.imageUri);
-      }
-
----
-
-var snImage = new Promise(function(resolve, reject){
-            that.$device.readFile(that.snPicture, e => resolve(btoa(e.target.result)), () => reject());
-         });
-         var itemImage = new Promise(function(resolve, reject){
-            that.$device.readFile(that.itemPicture, e => resolve(btoa(e.target.result)), () => reject());
-         });
-
-*/
