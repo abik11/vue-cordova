@@ -34,10 +34,9 @@
       },
       methods: {
          send() {
-            sms.send(
+            this.$device.sendSms(
                this.phoneNumber,
                this.message,
-               this.$device.getSmsConfig(),
                this.onMessageSent,
                this.basicErrorHandler
             );

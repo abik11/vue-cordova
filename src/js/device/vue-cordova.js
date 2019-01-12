@@ -2,6 +2,7 @@
 
 VueCordova.install = function (Vue, options) {
    var imageMimeType = 'image/jpeg';
+   var undefined = 'undefined';
 
    var defaults = {
       defaultErrorHandler(error) {
@@ -31,7 +32,7 @@ VueCordova.install = function (Vue, options) {
 
    var device = {
       getMacAddress: function (success, error) {
-         if (typeof (error) === 'undefined')
+         if (typeof (error) === undefined)
             error = defaults.defaultErrorHandler;
          cordova.exec(success, error, 'getmac', 'getMacAddress', []);
       },
@@ -44,8 +45,24 @@ VueCordova.install = function (Vue, options) {
          return defaults.smsConfig;
       },
 
+      sendSms(number, message, success, error, options) {
+         if (typeof (error) === undefined)
+            error = defaults.defaultErrorHandler;
+         if (typeof (options) === undefined)
+            options = defaults.smsConfig;
+         sms.send(number,message, options, success, error);
+      },
+
       getBarcodeScannerConfig() {
          return defaults.barcodeScannerConfig;
+      },
+
+      scanBarcode(success, error, options) {
+         if (typeof (error) === undefined)
+            error = defaults.defaultErrorHandler;
+         if (typeof (options) === undefined)
+            options = defaults.barcodeScannerConfig;
+         cordova.plugins.barcodeScanner.scan(success, error, options);
       },
 
       getCameraConfig() {
@@ -53,9 +70,9 @@ VueCordova.install = function (Vue, options) {
       },
 
       getPicture(success, error, options) {
-         if (typeof (error) === 'undefined')
+         if (typeof (error) === undefined)
             error = defaults.defaultErrorHandler;
-         if (typeof (options) === 'undefined')
+         if (typeof (options) === undefined)
             options = defaults.cameraConfig;
          navigator.camera.getPicture(success, error, options);
       },

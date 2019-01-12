@@ -28,10 +28,9 @@
       },
       methods: {
          scanCode() {
-            cordova.plugins.barcodeScanner.scan(
+            this.$device.scanBarcode(
                this.onScanned,
-               this.basicErrorHandler,
-               this.$device.getBarcodeScannerConfig()
+               this.basicErrorHandler
             );
          },
          onScanned(result) {
