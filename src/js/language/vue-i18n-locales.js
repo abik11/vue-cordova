@@ -21,6 +21,9 @@
          enter_message: 'Enter message...',
          phone_number: 'Enter phone number...',
          message_sent: 'Message sent'
+      },
+      make_picture: {
+         make_picture: 'Make a picture'
       }
    },
    pl: {

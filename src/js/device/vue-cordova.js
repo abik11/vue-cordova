@@ -20,7 +20,7 @@ VueCordova.install = function (Vue, options) {
          targetWidth: 800,
          targetHeight: 600,
          encoding: imageMimeType == 'image/jpeg' ? Camera.EncodingType.JPEG : Camera.EncodingType.PNG,
-         correctOrientation: false,
+         correctOrientation: true,
          saveToPhotoAlbum: false,
          destinationType: Camera.DestinationType.FILE_URI
       },
