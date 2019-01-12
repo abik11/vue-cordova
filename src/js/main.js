@@ -6,7 +6,7 @@ import VueRouter from 'vue-router';
 import VueCordova from './device/vue-cordova.js';
 import VueI18n from 'vue-i18n';
 import Locale from './language/vue-i18n-locales.js';
-import '../css/index.scss';
+import '../css/main.scss';
 //---
 import Home from './components/home.vue';
 import ScanBarcode from './components/scanBarcode.vue';

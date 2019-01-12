@@ -10,7 +10,7 @@ var PurifyCSSPlugin = require('purifycss-webpack');
 
 module.exports = {
    entry: {
-      main: './src/js/index.js'
+      main: './src/js/main.js'
    },
    output: {
       filename: '[name].bundle.js',

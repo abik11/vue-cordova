@@ -38,15 +38,21 @@
                this.phoneNumber,
                this.message,
                this.$device.getSmsConfig(),
-               () => {
-                  this.feedback = this.$i18n.t('send_message.message_sent');
-                  console.log("SMS has been sent");
-                  this.message = '';
-                  this.error = '';
-               },
+               this.onMessageSent,
                this.basicErrorHandler
             );
+         },
+         onMessageSent() {
+            console.log("SMS has been sent");
+            this.feedback = this.$i18n.t('send_message.message_sent');
+            this.message = '';
+            this.error = '';
+            localStorage.lastNumber = this.phoneNumber;
          }
+      },
+      mounted() {
+         if (localStorage.lastNumber)
+            this.phoneNumber = localStorage.lastNumber;
       }
    }
 </script>
