@@ -3,7 +3,11 @@
       <div>
          <button @click="captureImage">{{$t('make_picture.make_picture')}}</button>
          <br />
-         <img class=".img" v-if="imageUri.length != 0" :src="imageUri" />
+         <div v-if="imageUri.length != 0">
+            <img class=".img" :src="imageUri" />
+            <br />
+            <button @click="sendImage">{{$t('common.send')}}</button>
+         </div>
       </div>
    </transition>
 </template>
@@ -25,15 +29,23 @@
          captureImage() {
             this.$device.getPicture
                (imageUri => this.imageUri = imageUri);
+         },
+         getImageAsBase64() {
+            // You can get image as base64 straight from the 
+            // cordova-plugin-camera but here it is done a bit 
+            // longer way just to present how to work with cordova-plugin-file
+
+            var image = new Promise((resolve, reject) => {
+               this.$device.readFile(this.imageUri, e => resolve(btoa(e.target.result)), () => reject());
+            });
+
+            image.then(imageBase64 => {
+               console.log(imageBase64);
+            });
+         },
+         sendImage() {
+            this.getImageAsBase64();
          }
-         //tmp() {
-         //   var snImage = new Promise(function (resolve, reject) {
-         //      that.$device.readFile(that.snPicture, e => resolve(btoa(e.target.result)), () => reject());
-         //   });
-         //   var itemImage = new Promise(function (resolve, reject) {
-         //      that.$device.readFile(that.itemPicture, e => resolve(btoa(e.target.result)), () => reject());
-         //   });
-         //}
       }
    }
 </script>
