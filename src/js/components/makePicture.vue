@@ -7,6 +7,9 @@
             <img class=".img" :src="imageUri" />
             <br />
             <button @click="sendImage">{{$t('common.send')}}</button>
+            <br />
+            <flashing-label :text="feedback" />
+            <error-label :error="error" />
          </div>
       </div>
    </transition>
@@ -15,13 +18,18 @@
 <script>
    import DataStore from '../core/dataStore';
    import ErrorMixin from '../core/errorMixin';
+   import ErrorLabel from '../components/common/errorLabel.vue';
+   import FlashingLabel from '../components/common/flashingLabel.vue';
 
    export default {
       name: 'makePicture',
       mixins: [ErrorMixin],
+      components: { ErrorLabel, FlashingLabel },
       data: function () {
          return {
             imageUri: '',
+            feedback: '',
+            error: '',
             sharedData: DataStore.state
          }
       },
@@ -35,16 +43,27 @@
             // cordova-plugin-camera but here it is done a bit 
             // longer way just to present how to work with cordova-plugin-file
 
-            var image = new Promise((resolve, reject) => {
-               this.$device.readFile(this.imageUri, e => resolve(btoa(e.target.result)), () => reject());
-            });
-
-            image.then(imageBase64 => {
-               console.log(imageBase64);
+            return new Promise((resolve, reject) => {
+               this.$device.readFile
+                  (this.imageUri, e => resolve(btoa(e.target.result)), () => reject());
             });
          },
          sendImage() {
-            this.getImageAsBase64();
+            this.getImageAsBase64()
+               .then(imgBase64 => {
+                  this.$device.sendMms(
+                     '797026001',
+                     'Here is a picture',
+                     `data:image/jpeg;base64,${imgBase64}`,
+                     this.onPictureSent,
+                     e => console.log(e)
+                  );
+               });
+         },
+         onPictureSent() {
+            console.log("MMS has been sent");
+            this.feedback = this.$i18n.t('make_picture.picture_sent');
+            this.error = '';
          }
       }
    }

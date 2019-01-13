@@ -23,7 +23,8 @@
          message_sent: 'Message sent'
       },
       make_picture: {
-         make_picture: 'Make a picture'
+         make_picture: 'Make a picture',
+         picture_sent: 'Picture sent'
       }
    },
    pl: {

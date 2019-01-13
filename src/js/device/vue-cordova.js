@@ -53,6 +53,23 @@ VueCordova.install = function (Vue, options) {
          sms.send(number,message, options, success, error);
       },
 
+      sendMms(number, message, image, success, error, method) {
+         if (typeof (error) === undefined)
+            error = defaults.defaultErrorHandler;
+         if (typeof (method) === undefined)
+            method = '';
+
+         cordova.exec(
+            success,
+            error,
+            'mms',
+            'send',
+            [number, message, image, method]
+         );
+
+         //mms.send(number, message, method, success, error);
+      },
+
       getBarcodeScannerConfig() {
          return defaults.barcodeScannerConfig;
       },
