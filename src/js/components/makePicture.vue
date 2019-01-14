@@ -6,6 +6,8 @@
          <div v-if="imageUri.length != 0">
             <img class=".img" :src="imageUri" />
             <br />
+            <input type="text" :placeholder="$t('send_message.phone_number')" v-model="phoneNumber" />
+            <br />
             <button @click="sendImage">{{$t('common.send')}}</button>
             <br />
             <flashing-label :text="feedback" />
@@ -28,6 +30,7 @@
       data: function () {
          return {
             imageUri: '',
+            phoneNumber: '',
             feedback: '',
             error: '',
             sharedData: DataStore.state
@@ -39,8 +42,8 @@
                (imageUri => this.imageUri = imageUri);
          },
          getImageAsBase64() {
-            // You can get image as base64 straight from the 
-            // cordova-plugin-camera but here it is done a bit 
+            // You can get image as base64 straight from the
+            // cordova-plugin-camera but here it is done a bit
             // longer way just to present how to work with cordova-plugin-file
 
             return new Promise((resolve, reject) => {
@@ -52,11 +55,11 @@
             this.getImageAsBase64()
                .then(imgBase64 => {
                   this.$device.sendMms(
-                     '797026001',
-                     'Here is a picture',
+                     this.phoneNumber,
+                     this.$i18n.t('make_picture.picture_here'),
                      `data:image/jpeg;base64,${imgBase64}`,
                      this.onPictureSent,
-                     e => console.log(e)
+                     this.basicErrorHandler
                   );
                });
          },

@@ -50,7 +50,7 @@ VueCordova.install = function (Vue, options) {
             error = defaults.defaultErrorHandler;
          if (typeof (options) === undefined)
             options = defaults.smsConfig;
-         sms.send(number,message, options, success, error);
+         sms.send(number, message, options, success, error);
       },
 
       sendMms(number, message, image, success, error, method) {
@@ -59,15 +59,23 @@ VueCordova.install = function (Vue, options) {
          if (typeof (method) === undefined)
             method = '';
 
+         var convertPhoneToArray = function(phone) {
+            if (typeof phone === 'string' && phone.indexOf(',') !== -1) {
+               phone = phone.split(',');
+            }
+            if (Object.prototype.toString.call(phone) !== '[object Array]') {
+               phone = [phone];
+            }
+            return phone;
+         }
+
          cordova.exec(
             success,
             error,
             'mms',
             'send',
-            [number, message, image, method]
+            [convertPhoneToArray(number), message, image, method]
          );
-
-         //mms.send(number, message, method, success, error);
       },
 
       getBarcodeScannerConfig() {

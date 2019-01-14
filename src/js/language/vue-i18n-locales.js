@@ -24,7 +24,8 @@
       },
       make_picture: {
          make_picture: 'Make a picture',
-         picture_sent: 'Picture sent'
+         picture_sent: 'Picture sent',
+         picture_here: 'Picture is here'
       }
    },
    pl: {
