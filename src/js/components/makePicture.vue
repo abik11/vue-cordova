@@ -42,8 +42,8 @@
                (imageUri => this.imageUri = imageUri);
          },
          getImageAsBase64() {
-            // You can get image as base64 straight from the
-            // cordova-plugin-camera but here it is done a bit
+            // You can get image as base64 straight from the cordova-plugin-camera 
+            // by setting the destinationType to DATA_URL, but here it is done a bit
             // longer way just to present how to work with cordova-plugin-file
 
             return new Promise((resolve, reject) => {
@@ -59,7 +59,8 @@
                      this.$i18n.t('make_picture.picture_here'),
                      `data:image/jpeg;base64,${imgBase64}`,
                      this.onPictureSent,
-                     this.basicErrorHandler
+                     this.basicErrorHandler,
+                     'INTENT'
                   );
                });
          },
