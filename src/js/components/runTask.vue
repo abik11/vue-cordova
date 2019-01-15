@@ -1,7 +1,10 @@
 ﻿<template>
    <transition appear name="custom-classes-transition" enter-active-class="animated fadeIn">
       <div>
-         <p>Run task</p>
+         <button @click="start">{{$t('run_task.start_task')}}</button>
+         <br />
+         <br />
+         <button @click="stop">{{$t('run_task.stop_task')}}</button>
       </div>
    </transition>
 </template>
@@ -19,6 +22,19 @@
          }
       },
       methods: {
+         start() {
+            cordova.plugins.backgroundMode.enable();
+         },
+         stop() {
+            cordova.plugins.backgroundMode.disable();
+         }
+      },
+      mounted() {
+         cordova.plugins.backgroundMode.on('enable', function () {
+            setInterval(function () {
+               cordova.plugins.backgroundMode.wakeUp(); //in progress...
+            }, 5000);
+         });
       }
    }
 </script>

@@ -26,6 +26,10 @@
          make_picture: 'Make a picture',
          picture_sent: 'Picture sent',
          picture_here: 'Picture is here'
+      },
+      run_task: {
+         start_task: 'Start bg task',
+         stop_task: 'Stop bg task'
       }
    },
    pl: {
