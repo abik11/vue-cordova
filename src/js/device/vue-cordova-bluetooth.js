@@ -86,17 +86,35 @@ export default VueCordovaBluetooth;
 
 /*
 
---- USAGE ---
+--- USAGE EXAMPLE ---
 
    connectBtScanner() {
       this.$bluetooth.getPairedDeviceDetails(this.sharedData.bluetoothScannerName)
          .then(data => {
             return this.$bluetooth.startReceiving
-                  (data.address, this.updateCode, this.basicErrorHandler);
+               (data.address, this.updateCode, this.basicErrorHandler);
          })
          .then(() => this.bluetoothOn = true)
-         .catch(() => this.bluetoothOn = false);
+         .catch(error => {
+            console.log(error);
+            if (error.code != 5)
+               this.bluetoothOn = false
+         });
    }
+   
+   
+   checkBtScanner() {
+      this.$bluetooth.isReadyToReceive()
+         .then(isReady => {
+            if (!isReady)
+               this.connectBtScanner();
+         })
+         .catch(error => {
+            this.bluetoothOn = false;
+            this.basicErrorHandler(error);
+         });
+   }   
+   
 
    this.$bluetooth.stopReceiving().
       then(() => {
