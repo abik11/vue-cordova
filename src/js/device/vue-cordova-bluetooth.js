@@ -96,7 +96,6 @@ export default VueCordovaBluetooth;
          })
          .then(() => this.bluetoothOn = true)
          .catch(error => {
-            console.log(error);
             if (error.code != 5)
                this.bluetoothOn = false
          });
