@@ -29,7 +29,8 @@
       },
       run_task: {
          start_task: 'Start bg task',
-         stop_task: 'Stop bg task'
+         stop_task: 'Stop bg task',
+         task_desc: 'The background task will bring the application to front every 5 seconds.'
       }
    },
    pl: {

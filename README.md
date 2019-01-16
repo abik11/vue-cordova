@@ -30,9 +30,10 @@ To allow Cordova to access hardware or system functions you sometimes need to in
 * [phonegap-plugin-barcodescanner](https://github.com/phonegap/phonegap-plugin-barcodescanner)
 * cordova-plugin-camera
 * cordova-plugin-file
-* [cordova-plugin-background-mode](https://github.com/katzer/cordova-plugin-background-mode)
 * [cordova-sms-plugin](https://github.com/cordova-sms/cordova-sms-plugin)
 * [cordova-plugin-mms](https://github.com/pyxweb/cordova-plugin-mms)
+* [cordova-plugin-background-mode](https://github.com/katzer/cordova-plugin-background-mode)
+* [cordova-plugin-local-notification](https://github.com/katzer/cordova-plugin-local-notifications)
 
 ##### Permissions
 Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work as expected. If you encounter problems with permissions, the easiest way to overcome it is to add manually permissions to the manifest.<br />
