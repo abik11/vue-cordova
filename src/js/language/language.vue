@@ -16,6 +16,7 @@
                { lang: 'en', active: true, img: 'file:///android_asset/www/img/United-Kingdom-icon.png' },
                { lang: 'pl', active: false, img: 'file:///android_asset/www/img/Poland-icon.png' },
                { lang: 'es', active: false, img: 'file:///android_asset/www/img/Spain-icon.png' },
+               { lang: 'it', active: false, img: 'file:///android_asset/www/img/Italy-icon.png' },
             ]
          }
       },

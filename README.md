@@ -41,6 +41,9 @@ In your project directory go to: `./platforms/android/AndroidManifest.xml` and a
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
 
+### Resources
+* [Flag icons](http://www.iconarchive.com/show/flag-icons-by-gosquared.1.html)
+
 ### Tested devices
 * Samsung Galaxy S6 (Android 7.0)
 * Samsung Galaxy Grand Prime (Android 5.1.1)

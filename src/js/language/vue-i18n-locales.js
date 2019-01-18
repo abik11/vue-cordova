@@ -44,6 +44,12 @@
          on: 'conectado',
          off: 'desconectado'
       }
+   },
+   it: {
+      common: {
+         on: 'connesso',
+         off: 'sconnesso'
+      }
    }
 }
 

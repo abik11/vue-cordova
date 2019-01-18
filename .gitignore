@@ -14,3 +14,4 @@
 /www/*
 package-lock.json
 vue-cordova.jsproj.user
+stats.json
