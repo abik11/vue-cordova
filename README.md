@@ -14,7 +14,6 @@ This is a mobile application project made with:
 ##### Rimraf
 Because on Windows you may encounter problems if you will try to delete *node_modules* directory, it is also recommended to install **rimraf** package from npm.
 
-
 ### Visual Studio Extensions and tools
 Any other IDE or text editor can be used to work with this project but with the following extensions for VS2017 it becomes a very handy IDE for hybrid-mobile development. It is recommended to install the following tools for VS2017:
 * Visual Studio Tools for Apache Cordova 
@@ -33,7 +32,6 @@ To allow Cordova to access hardware or system functions you sometimes need to in
 * [cordova-sms-plugin](https://github.com/cordova-sms/cordova-sms-plugin)
 * [cordova-plugin-mms](https://github.com/pyxweb/cordova-plugin-mms)
 * [cordova-plugin-background-mode](https://github.com/katzer/cordova-plugin-background-mode)
-* [cordova-plugin-local-notification](https://github.com/katzer/cordova-plugin-local-notifications)
 
 ##### Permissions
 Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work as expected. If you encounter problems with permissions, the easiest way to overcome it is to add manually permissions to the manifest.<br />
@@ -43,5 +41,10 @@ In your project directory go to: `./platforms/android/AndroidManifest.xml` and a
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
 
-### CSS
-You will not find too much styles here, it is supposed to be as simple and *bare* as possible. If you would like to add some CSS framework, you can see [here](https://github.com/abik11/todo-app-vue) an example of how to add Materialize to Vue.js project. Adding other frameworks should be very similar.
+### Tested devices
+* Samsung Galaxy S6 (Android 7.0)
+* Samsung Galaxy Grand Prime (Android 5.1.1)
+
+### To do
+I would love to add **Vuetify** to the project to make it look better and some kind of **Firebase** connection just to show an example how to integrate it with Vue.js and Cordova.<br />
+Also I would like to add a module with Bluetooth communication, maybe some kind of Bluetooth P2P chat.

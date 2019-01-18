@@ -1,5 +1,4 @@
-﻿/// <binding BeforeBuild='Run - Production' />
-var path = require('path');
+﻿var path = require('path');
 var webpack = require('webpack');
 var glob = require('glob-all');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
