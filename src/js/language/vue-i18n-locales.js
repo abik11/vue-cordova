@@ -17,6 +17,9 @@
          run_bg_task: 'Run a background task',
          clear_data: 'Clear component data'
       },
+      show_mac: {
+         cannot_get_mac: 'Could not get MAC address. Try to connect to a WIFI network.',
+      },
       send_message: {
          enter_message: 'Enter message...',
          phone_number: 'Enter phone number...',

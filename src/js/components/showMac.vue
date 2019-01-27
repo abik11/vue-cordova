@@ -19,9 +19,16 @@
             sharedData: DataStore.state
          }
       },
-      beforeMount() {
-         var that = this;
-         this.$device.getMacAddress(mac => that.macAddress = mac);
+      watch: {
+         macAddress: (newValue, oldValue) => {
+            console.log(newValue);
+            console.log(this.$i18n.t('show_mac.cannot_get_mac'));
+            if (newValue == 'error')
+               this.macAddress = this.$i18n.t('show_mac.cannot_get_mac');
+         }
+      },
+      mount() {
+         this.$device.getMacAddress(mac => this.macAddress = mac);
       }
    }
 </script>

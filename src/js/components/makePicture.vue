@@ -4,7 +4,7 @@
          <button @click="captureImage">{{$t('make_picture.make_picture')}}</button>
          <br />
          <div v-if="imageUri.length != 0">
-            <img class=".img" :src="imageUri" />
+            <img class="img" :src="imageUri" />
             <br />
             <input type="text" :placeholder="$t('send_message.phone_number')" v-model="phoneNumber" />
             <br />
@@ -75,7 +75,7 @@
 
 <style lang="scss" scoped>
    .img {
-      width: 800px;
-      height: 600px;
+      max-width: 400px;
+      max-height: 400px;
    }
 </style>
