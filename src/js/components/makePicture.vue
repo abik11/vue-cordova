@@ -44,7 +44,10 @@
          getImageAsBase64() {
             // You can get image as base64 straight from the cordova-plugin-camera 
             // by setting the destinationType to DATA_URL, but here it is done a bit
-            // longer way just to present how to work with cordova-plugin-file
+            // longer way just to present how to work with cordova-plugin-file.
+            // Remember that working with very long base64 strings is quite 
+            // memory consuming so if it is possible to use FILE_URI option,
+            // it is much better to use it.
 
             return new Promise((resolve, reject) => {
                this.$device.readFile
