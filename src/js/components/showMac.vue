@@ -27,7 +27,7 @@
                this.macAddress = this.$i18n.t('show_mac.cannot_get_mac');
          }
       },
-      mount() {
+      mounted() {
          this.$device.getMacAddress(mac => this.macAddress = mac);
       }
    }

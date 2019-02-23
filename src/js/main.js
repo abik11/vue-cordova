@@ -8,6 +8,7 @@ import VueI18n from 'vue-i18n';
 import Locale from './language/vue-i18n-locales.js';
 import '../css/main.scss';
 //---
+import App from './app.vue';
 import Home from './components/home.vue';
 import ScanBarcode from './components/scanBarcode.vue';
 import ShowMac from './components/showMac.vue';
@@ -47,7 +48,7 @@ import RunTask from './components/runTask.vue';
          messages: Locale
       });
 
-      new Vue({ router, i18n }).$mount("#app");
+      new Vue({ components: { App }, router, i18n }).$mount("#app");
    }
 
    function onPause() { }
