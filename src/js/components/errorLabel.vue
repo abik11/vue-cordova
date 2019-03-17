@@ -1,8 +1,5 @@
 ﻿<template>
-   <transition appear
-               name="custom-classes-transition"
-               enter-active-class="animated flash"
-               leave-active-class="animated fadeOut">
+   <transition name="label">
       <span v-show="error.length > 0" style="color:darkred;"><strong>{{error}}</strong></span>
    </transition>
 </template>

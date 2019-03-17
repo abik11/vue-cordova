@@ -1,12 +1,23 @@
-﻿@import "../../node_modules/animate.css/animate.css";
+﻿@import "../../node_modules/vuetify/dist/vuetify.min.css";
+@import "../../node_modules/material-design-icons-iconfont/dist/material-design-icons.css";
+@import "transitions";
+
+.full {
+   width: 100%;
+   height: 100%;
+}
 
 body, html {
-   height: 100%;
-   width: 100%;
+   @extend .full;
+   overflow-x: hidden;
 }
 
 body {
    -webkit-touch-callout: none;
    -webkit-text-size-adjust: none;
    -webkit-user-select: none;
+}
+
+.footer-spacer {
+   padding-bottom: 20% !important;
 }

@@ -1,9 +1,11 @@
 ﻿<template>
-   <transition appear name="custom-classes-transition" enter-active-class="animated fadeIn">
-      <div>
-         <p>{{macAddress}}</p>
-      </div>
-   </transition>
+   <transition name="fade" mode="out-in">
+      <v-layout align-center justify-center column>
+         <v-flex xs12 text-xs-center>
+            <p>{{macAddress}}</p>
+         </v-flex>
+      </v-layout>
+</transition>
 </template>
 
 <script>

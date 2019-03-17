@@ -1,8 +1,5 @@
 ﻿<template>
-   <transition appear
-               name="custom-classes-transition"
-               enter-active-class="animated flash"
-               leave-active-class="animated fadeOut">
+   <transition name="label">
       <span v-show="text.length > 0">{{text}}</span>
    </transition>
 </template>

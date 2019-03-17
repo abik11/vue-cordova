@@ -1,23 +1,36 @@
 ﻿<template>
-   <transition appear name="custom-classes-transition" enter-active-class="animated fadeIn">
-      <div>
-         <input type="text" :placeholder="$t('send_message.phone_number')" v-model="phoneNumber" />
-         <br />
-         <textarea :placeholder="$t('send_message.enter_message')" v-model="message"></textarea>
-         <br />
-         <button @click="send">{{$t('common.send')}}</button>
-         <br />
-         <flashing-label :text="feedback" />
-         <error-label :error="error" />
-      </div>
+   <transition name="fade" mode="out-in">
+      <v-layout row wrap fill-height>
+         <v-flex xs12 text-xs-center>
+            <v-text-field outline
+                          v-model="phoneNumber"
+                          :label="$t('send_message.phone_number')"
+                          prepend-inner-icon="phone">
+            </v-text-field>
+         </v-flex>
+         <v-flex xs12 text-xs-center>
+            <v-textarea outline
+                        auto-grow
+                        :label="$t('send_message.enter_message')"
+                        v-model="message">
+            </v-textarea>
+         </v-flex>
+         <v-flex xs12 text-xs-center>
+            <v-btn outline color="primary" @click="send">{{$t('common.send')}}</v-btn>
+         </v-flex>
+         <v-flex xs12 text-xs-center>
+            <flashing-label :text="feedback" />
+            <error-label :error="error" />
+         </v-flex>
+      </v-layout>
    </transition>
 </template>
 
 <script>
    import DataStore from '../core/dataStore';
    import ErrorMixin from '../core/errorMixin';
-   import ErrorLabel from '../components/common/errorLabel.vue';
-   import FlashingLabel from '../components/common/flashingLabel.vue';
+   import ErrorLabel from '../components/errorLabel.vue';
+   import FlashingLabel from '../components/flashingLabel.vue';
 
    export default {
       name: 'sendMessage',

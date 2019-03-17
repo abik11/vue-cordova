@@ -2,19 +2,21 @@
 require('es6-promise').polyfill();
 import Polyfill from './core/es6-polyfill.js';
 import Vue from 'vue';
+import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import VueCordova from './device/vue-cordova.js';
 import VueI18n from 'vue-i18n';
 import Locale from './language/vue-i18n-locales.js';
 import '../css/main.scss';
+import theme from './theme.js';
 //---
 import App from './app.vue';
-import Home from './components/home.vue';
-import ScanBarcode from './components/scanBarcode.vue';
-import ShowMac from './components/showMac.vue';
-import MakePicture from './components/makePicture.vue';
-import SendMessage from './components/sendMessage.vue';
-import RunTask from './components/runTask.vue';
+import Home from './views/home.vue';
+import ScanBarcode from './views/scanBarcode.vue';
+import ShowMac from './views/showMac.vue';
+import MakePicture from './views/makePicture.vue';
+import SendMessage from './views/sendMessage.vue';
+import RunTask from './views/runTask.vue';
 
 (function () {
    "use strict";
@@ -26,6 +28,7 @@ import RunTask from './components/runTask.vue';
       document.addEventListener('resume', onResume.bind(this), false);
       
       Polyfill.objectAssign();
+      Vue.use(Vuetify, { theme, iconfont: 'mdi' });
       Vue.use(VueRouter);
       Vue.use(VueCordova);
       Vue.use(VueI18n);

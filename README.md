@@ -9,6 +9,7 @@ This is a mobile application project made with:
 * Visual Studio 2017
 * Cordova
 * Vue.js
+* Vuetify
 * Webpack
 
 ##### Rimraf
@@ -32,6 +33,7 @@ To allow Cordova to access hardware or system functions you sometimes need to in
 * [cordova-sms-plugin](https://github.com/cordova-sms/cordova-sms-plugin)
 * [cordova-plugin-mms](https://github.com/pyxweb/cordova-plugin-mms)
 * [cordova-plugin-background-mode](https://github.com/katzer/cordova-plugin-background-mode)
+* [cordova-plugin-powermanagement](https://github.com/boltex/cordova-plugin-powermanagement)
 
 ##### Permissions
 Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work as expected. If you encounter problems with permissions, the easiest way to overcome it is to add manually permissions to the manifest.<br />
@@ -47,7 +49,3 @@ In your project directory go to: `./platforms/android/AndroidManifest.xml` and a
 ### Tested devices
 * Samsung Galaxy S6 (Android 7.0)
 * Samsung Galaxy Grand Prime (Android 5.1.1)
-
-### To do
-I would love to add **Vuetify** to the project to make it look better and some kind of **Firebase** connection just to show an example how to integrate it with Vue.js and Cordova.<br />
-Also I would like to add a module with Bluetooth communication, maybe some kind of Bluetooth P2P chat.

@@ -1,14 +1,11 @@
 ﻿var Locale = {
    en: {
       common: {
-         on: 'ON',
-         off: 'OFF',
          scan: 'Scan',
          send: 'Send'
       },
       home: {
          app_ver: 'App version',
-         wifi_status: 'Wifi status',
          time_elapsed: 'Time elapsed',
          scan_barcode: 'Scan Barcode',
          show_mac: 'Show MAC',
@@ -37,21 +34,18 @@
       }
    },
    pl: {
-      common: {
-         on: 'włączone',
-         off: 'wyłączone'
+      home: {
+         app_ver: 'Wersja'
       }
    },
    es: {
-      common: {
-         on: 'conectado',
-         off: 'desconectado'
+      home: {
+         app_ver: 'Versión'
       }
    },
    it: {
-      common: {
-         on: 'connesso',
-         off: 'sconnesso'
+      home: {
+         app_ver: 'Versione'
       }
    }
 }

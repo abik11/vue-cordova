@@ -1,27 +1,39 @@
 ﻿<template>
-   <transition appear name="custom-classes-transition" enter-active-class="animated fadeIn">
-      <div>
-         <button @click="captureImage">{{$t('make_picture.make_picture')}}</button>
-         <br />
-         <div v-if="imageUri.length != 0">
-            <img class="img" :src="imageUri" />
-            <br />
-            <input type="text" :placeholder="$t('send_message.phone_number')" v-model="phoneNumber" />
-            <br />
-            <button @click="sendImage">{{$t('common.send')}}</button>
-            <br />
-            <flashing-label :text="feedback" />
-            <error-label :error="error" />
-         </div>
-      </div>
+   <transition name="fade" mode="out-in">
+      <v-layout row wrap fill-height>
+         <v-flex xs12 text-xs-center>
+            <v-btn outline color="primary" @click="captureImage">{{$t('make_picture.make_picture')}}</v-btn>
+         </v-flex>
+         <v-flex v-if="imageUri.length != 0" xs12 text-xs-center>
+            <v-layout column>
+               <v-flex xs12>
+                  <img class="img" :src="imageUri" />
+               </v-flex>
+               <v-flex xs12  text-xs-center>
+                  <v-text-field outline
+                                v-model="phoneNumber"
+                                :label="$t('send_message.phone_number')"
+                                prepend-inner-icon="phone">
+                  </v-text-field>
+               </v-flex>
+               <v-flex xs12  text-xs-center>
+                  <v-btn outline color="primary" @click="sendImage">{{$t('common.send')}}</v-btn>
+               </v-flex>
+               <v-flex xs12  text-xs-center>
+                  <flashing-label :text="feedback" />
+                  <error-label :error="error" />
+               </v-flex>
+            </v-layout>
+         </v-flex>
+      </v-layout>
    </transition>
 </template>
 
 <script>
    import DataStore from '../core/dataStore';
    import ErrorMixin from '../core/errorMixin';
-   import ErrorLabel from '../components/common/errorLabel.vue';
-   import FlashingLabel from '../components/common/flashingLabel.vue';
+   import ErrorLabel from '../components/errorLabel.vue';
+   import FlashingLabel from '../components/flashingLabel.vue';
 
    export default {
       name: 'makePicture',

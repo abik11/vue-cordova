@@ -80,12 +80,15 @@ module.exports = {
       new ExtractTextPlugin({
          filename: './css/style.css'
       }),
-      new PurifyCSSPlugin({
-         paths: glob.sync([
-            path.join(__dirname, 'src/*.html'),
-            path.join(__dirname, 'src/js/*.vue')
-         ])
-      }),
+      //new PurifyCSSPlugin({
+      //   paths: glob.sync([
+      //      path.join(__dirname, 'src/*.html'),
+      //      path.join(__dirname, 'src/js/*.vue'),
+      //      path.join(__dirname, 'src/js/views/*.vue'),
+      //      path.join(__dirname, 'src/js/language/*.vue'),
+      //      path.join(__dirname, 'src/js/components/*.vue')
+      //   ])
+      //}),
       new HtmlWebpackPlugin({
          template: 'src/index.html',
          minify: {

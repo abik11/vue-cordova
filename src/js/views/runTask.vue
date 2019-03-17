@@ -1,11 +1,20 @@
 ﻿<template>
-   <transition appear name="custom-classes-transition" enter-active-class="animated fadeIn">
-      <div>
-         <button v-if="!sharedData.taskActive" @click="start">{{$t('run_task.start_task')}}</button>
-         <button v-else="sharedData.taskActive" @click="stop">{{$t('run_task.stop_task')}}</button>
-         <br />
-         <p>{{$t('run_task.task_desc')}}</p>
-      </div>
+   <transition name="fade" mode="out-in">
+      <v-layout align-center justify-center column>
+         <v-flex xs12 text-xs-center>
+            <transition name="bounce" mode="out-in">
+               <v-btn v-if="!sharedData.taskActive" key="start" outline color="primary" @click="start">
+                  {{$t('run_task.start_task')}}
+               </v-btn>
+               <v-btn v-else="sharedData.taskActive" key="stop" outline color="primary" @click="stop">
+                  {{$t('run_task.stop_task')}}
+               </v-btn>
+            </transition>
+         </v-flex>
+         <v-flex xs12 text-xs-center class="pa-3">
+            <p>{{$t('run_task.task_desc')}}</p>
+         </v-flex>
+      </v-layout>
    </transition>
 </template>
 
@@ -34,12 +43,16 @@
          startBgAction() {
             //cordova.plugins.backgroundMode.overrideBackButton();
             //cordova.plugins.backgroundMode.excludeFromTaskList();
+            powerManagement.dim();
+
             this.sharedData.taskHandler = setInterval
                (() => cordova.plugins.backgroundMode.moveToForeground(), 5000);
+
             this.sharedData.taskActive = true;
             console.log('Bg mode started');
          },
          endBgAction() {
+            powerManagement.setReleaseOnPause(false);
             clearInterval(this.sharedData.taskHandler);
             cordova.plugins.backgroundMode.un('enable', this.startBgAction);
             cordova.plugins.backgroundMode.un('disable', this.endBgAction);
