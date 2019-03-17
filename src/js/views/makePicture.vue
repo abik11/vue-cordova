@@ -9,7 +9,7 @@
                <v-flex xs12>
                   <img class="img" :src="imageUri" />
                </v-flex>
-               <v-flex xs12  text-xs-center>
+               <v-flex xs12 text-xs-center>
                   <v-text-field outline
                                 v-model="phoneNumber"
                                 :label="$t('send_message.phone_number')"
