@@ -49,3 +49,6 @@ In your project directory go to: `./platforms/android/AndroidManifest.xml` and a
 ### Tested devices
 * Samsung Galaxy S6 (Android 7.0)
 * Samsung Galaxy Grand Prime (Android 5.1.1)
+
+### Todo
+It would be nice to add some bluetooth functionality, for example maybe some kind of bluetooth chat.

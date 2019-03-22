@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var WebpackNotifierPlugin = require('webpack-notifier');
-var PurifyCSSPlugin = require('purifycss-webpack');
+//var PurifyCSSPlugin = require('purifycss-webpack');
 
 module.exports = {
    entry: {

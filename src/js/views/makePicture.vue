@@ -1,10 +1,10 @@
 ﻿<template>
    <transition name="fade" mode="out-in">
-      <v-layout row wrap fill-height>
-         <v-flex xs12 text-xs-center>
+      <v-layout align-center justify-center column fill-height>
+         <div class="text-xs-center">
             <v-btn outline color="primary" @click="captureImage">{{$t('make_picture.make_picture')}}</v-btn>
-         </v-flex>
-         <v-flex v-if="imageUri.length != 0" xs12 text-xs-center>
+         </div>
+         <div v-if="imageUri.length != 0" class="text-xs-center">
             <v-layout column>
                <v-flex xs12>
                   <img class="img" :src="imageUri" />
@@ -24,7 +24,7 @@
                   <error-label :error="error" />
                </v-flex>
             </v-layout>
-         </v-flex>
+         </div>
       </v-layout>
    </transition>
 </template>

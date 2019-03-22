@@ -1,11 +1,11 @@
 ﻿<template>
    <transition name="fade" mode="out-in">
-      <v-layout align-center justify-center column>
-         <v-flex xs12 text-xs-center>
+      <v-layout align-center justify-center column fill-height>
+         <div class="text-xs-center">
             <p>{{macAddress}}</p>
-         </v-flex>
+         </div>
       </v-layout>
-</transition>
+   </transition>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 ﻿<template>
    <transition name="fade" mode="out-in">
-      <v-layout align-center justify-center column>
-         <v-flex xs12 text-xs-center>
+      <v-layout align-center justify-center column fill-height>
+         <div class="text-xs-center">
             <transition name="bounce" mode="out-in">
                <v-btn v-if="!sharedData.taskActive" key="start" outline color="primary" @click="start">
                   {{$t('run_task.start_task')}}
@@ -10,10 +10,8 @@
                   {{$t('run_task.stop_task')}}
                </v-btn>
             </transition>
-         </v-flex>
-         <v-flex xs12 text-xs-center class="pa-3">
-            <p>{{$t('run_task.task_desc')}}</p>
-         </v-flex>
+            <p class="pa-3">{{$t('run_task.task_desc')}}</p>
+         </div>
       </v-layout>
    </transition>
 </template>

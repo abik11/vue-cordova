@@ -1,27 +1,27 @@
 ﻿<template>
    <transition name="fade" mode="out-in">
-      <v-layout row wrap fill-height>
-         <v-flex xs12 text-xs-center>
+      <v-layout align-center justify-center column fill-height>
+         <div class="text-xs-center">
             <v-text-field outline
                           v-model="phoneNumber"
                           :label="$t('send_message.phone_number')"
                           prepend-inner-icon="phone">
             </v-text-field>
-         </v-flex>
-         <v-flex xs12 text-xs-center>
+         </div>
+         <div class="text-xs-center">
             <v-textarea outline
                         auto-grow
                         :label="$t('send_message.enter_message')"
                         v-model="message">
             </v-textarea>
-         </v-flex>
-         <v-flex xs12 text-xs-center>
+         </div>
+         <div class="text-xs-center">
             <v-btn outline color="primary" @click="send">{{$t('common.send')}}</v-btn>
-         </v-flex>
-         <v-flex xs12 text-xs-center>
+         </div>
+         <div class="text-xs-center">
             <flashing-label :text="feedback" />
             <error-label :error="error" />
-         </v-flex>
+         </div>
       </v-layout>
    </transition>
 </template>

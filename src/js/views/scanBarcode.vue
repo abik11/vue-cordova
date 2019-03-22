@@ -1,13 +1,13 @@
 ﻿<template>
    <transition name="fade" mode="out-in">
-      <v-layout row wrap fill-height>
-         <v-flex xs12 text-xs-center>
+      <v-layout align-center justify-center column fill-height>
+         <div class="text-xs-center">
             <v-btn outline color="primary" @click="scanCode">{{$t('common.scan')}}</v-btn>
-         </v-flex>
-         <v-flex xs12 text-xs-center>
+         </div>
+         <div class="text-xs-center">
             <flashing-label :text="scanned" />
             <error-label :error="error" />
-         </v-flex>
+         </div>
       </v-layout>
    </transition>
 </template>
