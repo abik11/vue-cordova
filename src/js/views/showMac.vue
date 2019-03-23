@@ -1,11 +1,9 @@
 ﻿<template>
-   <transition name="fade" mode="out-in">
-      <v-layout align-center justify-center column fill-height>
-         <div class="text-xs-center">
-            <p>{{macAddress}}</p>
-         </div>
-      </v-layout>
-   </transition>
+   <v-layout align-center justify-center column fill-height>
+      <div class="text-xs-center">
+         <p>{{macAddress}}</p>
+      </div>
+   </v-layout>
 </template>
 
 <script>
