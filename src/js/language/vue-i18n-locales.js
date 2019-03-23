@@ -2,7 +2,9 @@
    en: {
       common: {
          scan: 'Scan',
-         send: 'Send'
+         send: 'Send',
+         close: 'Close',
+         no_phone: 'No phone number given'
       },
       home: {
          app_ver: 'App version',

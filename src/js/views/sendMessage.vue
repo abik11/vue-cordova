@@ -1,5 +1,13 @@
 ﻿<template>
    <v-layout align-center justify-center column fill-height>
+      <v-snackbar v-model="toast" right top :timeout="toastTimeout">
+         {{ $t('send_message.message_sent') }}
+         <v-btn color="primary" flat @click="toast = false">{{ $t('common.close') }}</v-btn>
+      </v-snackbar>
+      <v-snackbar v-model="errorToast" color="error" right top :timeout="errorToastTimeout">
+         {{ error }}
+         <v-btn color="secondary" flat @click="clearError">{{ $t('common.close') }}</v-btn>
+      </v-snackbar>
       <div class="text-xs-center">
          <v-text-field outline
                        v-model="phoneNumber"
@@ -15,36 +23,38 @@
          </v-textarea>
       </div>
       <div class="text-xs-center">
-         <v-btn outline color="primary" @click="send">{{$t('common.send')}}</v-btn>
-      </div>
-      <div class="text-xs-center">
-         <flashing-label :text="feedback" />
-         <error-label :error="error" />
+         <v-btn outline color="primary" 
+                :disabled="phoneNumber.length == 0" 
+                @click="send">
+            {{$t('common.send')}}
+         </v-btn>
       </div>
    </v-layout>
 </template>
 
 <script>
    import DataStore from '../core/dataStore';
-   import ErrorMixin from '../core/errorMixin';
-   import ErrorLabel from '../components/errorLabel.vue';
-   import FlashingLabel from '../components/flashingLabel.vue';
+   import ErrorToastMixin from '../core/errorToastMixin';
 
    export default {
       name: 'sendMessage',
-      mixins: [ErrorMixin],
-      components: { ErrorLabel, FlashingLabel },
+      mixins: [ErrorToastMixin],
       data: function () {
          return {
+            toast: false,
+            toastTimeout: 2000,
             phoneNumber: '',
             message: '',
-            feedback: '',
-            error: '',
             sharedData: DataStore.state
          }
       },
       methods: {
          send() {
+            if (this.phoneNumber == '') {
+               this.error = this.$i18n.t('common.no_phone');
+               return;
+            }
+
             this.$device.sendSms(
                this.phoneNumber,
                this.message,
@@ -54,7 +64,7 @@
          },
          onMessageSent() {
             console.log("SMS has been sent");
-            this.feedback = this.$i18n.t('send_message.message_sent');
+            this.toast = true;
             this.message = '';
             this.error = '';
             localStorage.lastNumber = this.phoneNumber;

@@ -28,12 +28,15 @@ To allow Cordova to access hardware or system functions you sometimes need to in
 * [cordova-plugin-getmacandroid6](https://github.com/navidmalekan/getmac)
 * cordova-plugin-network-information
 * [phonegap-plugin-barcodescanner](https://github.com/phonegap/phonegap-plugin-barcodescanner)
+* [cordova-plugin-barcodescanner](https://github.com/hypery2k/cordova-barcodescanner-plugin) *(you can use this plugin if you will encounter any issues with the above one)*
 * cordova-plugin-camera
 * cordova-plugin-file
 * [cordova-sms-plugin](https://github.com/cordova-sms/cordova-sms-plugin)
 * [cordova-plugin-mms](https://github.com/pyxweb/cordova-plugin-mms)
 * [cordova-plugin-background-mode](https://github.com/katzer/cordova-plugin-background-mode)
 * [cordova-plugin-powermanagement](https://github.com/boltex/cordova-plugin-powermanagement)
+
+If you will encounter any problems with plugins the first step to try to handle problems is to reinstall them.
 
 ##### Permissions
 Plugins are quite strictly connected with permissions. Usually when you install the plugin it modifies **AndroidManifest.xml** and adds required permissions there, but sometimes it doesn't work as expected. If you encounter problems with permissions, the easiest way to overcome it is to add manually permissions to the manifest.<br />
@@ -47,6 +50,7 @@ In your project directory go to: `./platforms/android/AndroidManifest.xml` and a
 * [Flag icons](http://www.iconarchive.com/show/flag-icons-by-gosquared.1.html)
 
 ### Tested devices
+* Samsung Galaxy S8 (Android 9)
 * Samsung Galaxy S6 (Android 7.0)
 * Samsung Galaxy Grand Prime (Android 5.1.1)
 

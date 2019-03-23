@@ -49,14 +49,13 @@
 
 <script>
    import DataStore from '../core/dataStore';
-   import ErrorMixin from '../core/errorMixin';
    import ClearMixin from '../core/clearMixin';
    import Language from '../language/language.vue';
 
    export default {
       name: 'home',
       components: { Language },
-      mixins: [ErrorMixin, ClearMixin],
+      mixins: [ClearMixin],
       data: function () {
          return {
             views: [

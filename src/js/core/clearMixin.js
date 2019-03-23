@@ -1,4 +1,4 @@
-var ClearMixin = {
+const ClearMixin = {
    methods: {
       clear() {
          console.log('Clearing...');

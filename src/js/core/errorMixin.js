@@ -1,4 +1,9 @@
-﻿var ErrorMixin = {
+﻿const ErrorMixin = {
+   data() {
+      return {
+         error: ''
+      };
+   },
    methods: {
       basicErrorHandler(error) {
          if (this.loading !== 'undefined')

@@ -1,5 +1,14 @@
 ﻿<template>
    <v-layout align-center justify-center column fill-height>
+      <v-snackbar v-model="toast" right top :timeout="toastTimeout">
+         {{ $t('make_picture.picture_sent') }}
+         <v-btn color="primary" flat @click="toast = false">{{ $t('common.close') }}</v-btn>
+      </v-snackbar>
+      <v-snackbar v-model="errorToast" color="error" right top :timeout="errorToastTimeout">
+         {{ error }}
+         <v-btn color="secondary" flat @click="clearError">{{ $t('common.close') }}</v-btn>
+      </v-snackbar>
+
       <div class="text-xs-center">
          <v-btn outline color="primary" @click="captureImage">{{$t('make_picture.make_picture')}}</v-btn>
       </div>
@@ -16,11 +25,11 @@
                </v-text-field>
             </v-flex>
             <v-flex xs12 text-xs-center>
-               <v-btn outline color="primary" @click="sendImage">{{$t('common.send')}}</v-btn>
-            </v-flex>
-            <v-flex xs12 text-xs-center>
-               <flashing-label :text="feedback" />
-               <error-label :error="error" />
+               <v-btn outline color="primary"
+                      :disabled="phoneNumber.length == 0"
+                      @click="sendImage">
+                  {{$t('common.send')}}
+               </v-btn>
             </v-flex>
          </v-layout>
       </div>
@@ -29,20 +38,17 @@
 
 <script>
    import DataStore from '../core/dataStore';
-   import ErrorMixin from '../core/errorMixin';
-   import ErrorLabel from '../components/errorLabel.vue';
-   import FlashingLabel from '../components/flashingLabel.vue';
+   import ErrorToastMixin from '../core/errorToastMixin';
 
    export default {
       name: 'makePicture',
-      mixins: [ErrorMixin],
-      components: { ErrorLabel, FlashingLabel },
+      mixins: [ErrorToastMixin],
       data: function () {
          return {
+            toast: false,
+            toastTimeout: 2000,
             imageUri: '',
             phoneNumber: '',
-            feedback: '',
-            error: '',
             sharedData: DataStore.state
          }
       },
@@ -65,6 +71,11 @@
             });
          },
          sendImage() {
+            if (this.phoneNumber == '') {
+               this.error = this.$i18n.t('common.no_phone');
+               return;
+            }
+
             this.getImageAsBase64()
                .then(imgBase64 => {
                   this.$device.sendMms(
@@ -79,9 +90,14 @@
          },
          onPictureSent() {
             console.log("MMS has been sent");
-            this.feedback = this.$i18n.t('make_picture.picture_sent');
+            this.toast = true;
             this.error = '';
+            localStorage.lastNumber = this.phoneNumber;
          }
+      },
+      mounted() {
+         if (localStorage.lastNumber)
+            this.phoneNumber = localStorage.lastNumber;
       }
    }
 </script>

@@ -1,29 +1,28 @@
 ﻿<template>
    <v-layout align-center justify-center column fill-height>
+      <v-snackbar v-model="errorToast" color="error" right top :timeout="errorToastTimeout">
+         {{ error }}
+         <v-btn color="secondary" flat @click="clearError">{{ $t('common.close') }}</v-btn>
+      </v-snackbar>
       <div class="text-xs-center">
          <v-btn outline color="primary" @click="scanCode">{{$t('common.scan')}}</v-btn>
       </div>
       <div class="text-xs-center">
-         <flashing-label :text="scanned" />
-         <error-label :error="error" />
+         <p>{{ scanned }}</p>
       </div>
    </v-layout>
 </template>
 
 <script>
    import DataStore from '../core/dataStore';
-   import ErrorMixin from '../core/errorMixin';
-   import FlashingLabel from '../components/flashingLabel.vue';
-   import ErrorLabel from '../components/errorLabel.vue';
+   import ErrorToastMixin from '../core/errorToastMixin';
 
    export default {
       name: 'scanBarcode',
-      components: { FlashingLabel, ErrorLabel },
-      mixins: [ErrorMixin],
+      mixins: [ErrorToastMixin],
       data: function () {
          return {
             scanned: '',
-            error: '',
             sharedData: DataStore.state
          }
       },

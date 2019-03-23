@@ -8,11 +8,9 @@
 
 <script>
    import DataStore from '../core/dataStore';
-   import ErrorMixin from '../core/errorMixin';
 
    export default {
       name: 'showMac',
-      mixins: [ErrorMixin],
       data: function () {
          return {
             macAddress: '',

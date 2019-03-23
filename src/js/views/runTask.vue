@@ -16,11 +16,9 @@
 
 <script>
    import DataStore from '../core/dataStore';
-   import ErrorMixin from '../core/errorMixin';
 
    export default {
       name: 'runTask',
-      mixins: [ErrorMixin],
       data: function () {
          return {
             taskActive: false,

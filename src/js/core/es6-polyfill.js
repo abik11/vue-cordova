@@ -1,6 +1,6 @@
 ///This polyfill is required only if you want to support devices with old Android (less than 5).
 
-var Polyfill = {
+const Polyfill = {
    objectAssign() {
       if (!Object.assign) {
          console.log('Creating Object.assign polyfill');
