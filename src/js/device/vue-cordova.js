@@ -37,6 +37,12 @@ VueCordova.install = function (Vue, options) {
          cordova.exec(success, error, 'getmac', 'getMacAddress', []);
       },
 
+      getMacAddressAsync: function () {
+	      return new Promise((resolve, reject) => {
+		      cordova.exec(resolve, reject, 'getmac', 'getMacAddress', []);
+	      });
+      },
+      
       checkWifiConnection() {
          return navigator.connection.type == Connection.WIFI;
       },
