@@ -38,9 +38,9 @@ VueCordova.install = function (Vue, options) {
       },
 
       getMacAddressAsync: function () {
-	      return new Promise((resolve, reject) => {
-		      cordova.exec(resolve, reject, 'getmac', 'getMacAddress', []);
-	      });
+         return new Promise((resolve, reject) => {
+            cordova.exec(resolve, reject, 'getmac', 'getMacAddress', []);
+	 });
       },
       
       checkWifiConnection() {
@@ -106,6 +106,16 @@ VueCordova.install = function (Vue, options) {
          if (typeof (options) === undefined)
             options = defaults.cameraConfig;
          navigator.camera.getPicture(success, error, options);
+      },
+	   
+	   
+      getPictureAsync(options) {
+         if (typeof options === undefined)
+            options = defaults.cameraConfig;
+ 
+         return new Promise((resolve, reject) => {
+            navigator.camera.getPicture(resolve, reject, options);
+         });
       },
 
       readFile(fileName, onFileLoaded, onFileError) {
